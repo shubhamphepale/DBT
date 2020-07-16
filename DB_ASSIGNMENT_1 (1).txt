@@ -1,0 +1,154 @@
+Name:Shubham K Phepale
+Seat_No:200240520093
+
+
+SALESPEOPLE:
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+mysql> create table SALESPEOPLE(Snum int(4) PRIMARY KEY,Sname varchar(10),City varchar(10),Comm float(3,2));
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> DESC SALESPEOPLE;
++-------+-------------+------+-----+---------+-------+
+| Field | Type        | Null | Key | Default | Extra |
++-------+-------------+------+-----+---------+-------+
+| Snum  | int(4)      | NO   | PRI | NULL    |       |
+| Sname | varchar(10) | YES  |     | NULL    |       |
+| City  | varchar(10) | YES  |     | NULL    |       |
+| Comm  | float(3,2)  | YES  |     | NULL    |       |
++-------+-------------+------+-----+---------+-------+
+4 rows in set (0.00 sec)
+
+mysql> INSERT INTO SALESPEOPLE VALUES( 1001,'Peel','London',.12);
+Query OK, 1 row affected (0.04 sec)
+
+mysql> INSERT INTO SALESPEOPLE (Snum,Sname,City,Comm) VALUES ( 1002,'Serres','Son Jose',.13);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> INSERT INTO SALESPEOPLE (Snum,Sname,City,Comm) VALUES ( 1004,'Motika','London',.11);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> INSERT INTO SALESPEOPLE (Snum,Sname,City,Comm) VALUES ( 1007,'Rifkin','Barcelona',.15);
+Query OK, 1 row affected (0.05 sec)
+
+mysql> INSERT INTO SALESPEOPLE (Snum,Sname,City,Comm) VALUES ( 1003,'Axelrod','New York',.10);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> select * from SALESPEOPLE;                             +------+---------+-----------+------+
+| Snum | Sname   | City      | Comm |
++------+---------+-----------+------+
+| 1001 | Peel    | London    | 0.12 |
+| 1002 | Serres  | Son Jose  | 0.13 |
+| 1003 | Axelrod | New York  | 0.10 |
+| 1004 | Motika  | London    | 0.11 |
+| 1007 | Rifkin  | Barcelona | 0.15 |
++------+---------+-----------+------+
+5 rows in set (0.00 sec)
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+CUSTOMER:
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+mysql> create table CUSTOMER( Cnum int(4) PRIMARY KEY NOT NULL, Cname varchar(10), City varchar(10),Rating int(4),Snum int(4), foreign key (Snum) references SALESPEOPLE(Snum));
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> INSERT INTO CUSTOMER (Cnum,Cname,City,Rating,Snum) VALUES ( 2001,'Hoffman','London',100,1001);
+Query OK, 1 row affected (0.06 sec)
+
+mysql> INSERT INTO CUSTOMER (Cnum,Cname,City,Rating,Snum) VALUES ( 2002,'Giovanni','Rome',200,1003);
+Query OK, 1 row affected (0.05 sec)
+
+mysql> INSERT INTO CUSTOMER (Cnum,Cname,City,Rating,Snum) VALUES ( 2003,'Liu','San Jose',200,1002);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> INSERT INTO CUSTOMER (Cnum,Cname,City,Rating,Snum) VALUES ( 2004,'Grass','Barlin',300,1002);
+Query OK, 1 row affected (0.06 sec)
+
+mysql> INSERT INTO CUSTOMER (Cnum,Cname,City,Rating,Snum) VALUES ( 2006,'Clemens','London',100,1001);
+Query OK, 1 row affected (0.05 sec)
+
+mysql> INSERT INTO CUSTOMER (Cnum,Cname,City,Rating,Snum) VALUES ( 2008,'Cisneros','San Jose',300,1007);
+Query OK, 1 row affected (0.04 sec)
+
+mysql> INSERT INTO CUSTOMER (Cnum,Cname,City,Rating,Snum) VALUES ( 2007,'Pereira','Rome',100,1004);
+Query OK, 1 row affected (0.06 sec)
+
+mysql> select * from CUSTOMER;
++------+----------+----------+--------+------+
+| Cnum | Cname    | City     | Rating | Snum |
++------+----------+----------+--------+------+
+| 2001 | Hoffman  | London   |    100 | 1001 |
+| 2002 | Giovanni | Rome     |    200 | 1003 |
+| 2003 | Liu      | San Jose |    200 | 1002 |
+| 2004 | Grass    | Barlin   |    300 | 1002 |
+| 2006 | Clemens  | London   |    100 | 1001 |
+| 2007 | Pereira  | Rome     |    100 | 1004 |
+| 2008 | Cisneros | San Jose |    300 | 1007 |
++------+----------+----------+--------+------+
+7 rows in set (0.00 sec)
+
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ORDER:
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+mysql> create table ORDERS(Onum int(10) NOT NULL,AMT float(7,2),ODate date,Cnum int(4),Snum int(4),PRIMARY KEY (Onum),foreign key (Cnum) references CUSTOMER(Cnum),foreign key (Snum) references SALESPEOPLE(Snum));
+Query OK, 0 rows affected (0.11 sec)
+
+mysql> DESC ORDERS;
++-------+------------+------+-----+---------+-------+
+| Field | Type       | Null | Key | Default | Extra |
++-------+------------+------+-----+---------+-------+
+| Onum  | int(10)    | NO   | PRI | NULL    |       |
+| AMT   | float(7,2) | YES  |     | NULL    |       |
+| ODate | date       | YES  |     | NULL    |       |
+| Cnum  | int(4)     | YES  | MUL | NULL    |       |
+| Snum  | int(4)     | YES  | MUL | NULL    |       |
++-------+------------+------+-----+---------+-------+
+5 rows in set (0.00 sec)
+
+mysql> INSERT INTO ORDERS (Onum,AMT,ODate,Cnum,Snum) VALUES (3001,18.69,'1990-03-10',2008,1007);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> INSERT INTO ORDERS (Onum,AMT,ODate,Cnum,Snum) VALUES (3003,767.19,'1990-03-10',2001,1001);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> INSERT INTO ORDERS (Onum,AMT,ODate,Cnum,Snum) VALUES (3002,1900.10,'1990-03-10',2007,1004);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> INSERT INTO ORDERS (Onum,AMT,ODate,Cnum,Snum) VALUES (3005,5160.45,'1990-03-10',2003,1002);
+Query OK, 1 row affected (0.07 sec)
+
+mysql> INSERT INTO ORDERS (Onum,AMT,ODate,Cnum,Snum) VALUES (3006,1098.16,'1990-04-10',2008,1007);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> INSERT INTO ORDERS (Onum,AMT,ODate,Cnum,Snum) VALUES (3009,1713.23,'1990-04-10',2002,1003);
+Query OK, 1 row affected (0.06 sec)
+
+mysql> INSERT INTO ORDERS (Onum,AMT,ODate,Cnum,Snum) VALUES (3007,75.75,'1990-04-10',2004,1002);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> INSERT INTO ORDERS (Onum,AMT,ODate,Cnum,Snum) VALUES (3008,47232.00,'1990-05-10',2006,1001);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> INSERT INTO ORDERS (Onum,AMT,ODate,Cnum,Snum) VALUES (3010,1309.95,'1990-06-10',2004,1002);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> INSERT INTO ORDERS (Onum,AMT,ODate,Cnum,Snum) VALUES (3011,9891.88,'1990-06-10',2006,1001);
+Query OK, 1 row affected (0.05 sec)
+mysql> SELECT * FROM ORDERS;                                                     +------+----------+------------+------+------+
+| Onum | AMT      | ODate      | Cnum | Snum |
++------+----------+------------+------+------+
+| 3001 |    18.69 | 1990-03-10 | 2008 | 1007 |
+| 3002 |  1900.10 | 1990-03-10 | 2007 | 1004 |
+| 3003 |   767.19 | 1990-03-10 | 2001 | 1001 |
+| 3005 |  5160.45 | 1990-03-10 | 2003 | 1002 |
+| 3006 |  1098.16 | 1990-04-10 | 2008 | 1007 |
+| 3007 |    75.75 | 1990-04-10 | 2004 | 1002 |
+| 3008 | 47232.00 | 1990-05-10 | 2006 | 1001 |
+| 3009 |  1713.23 | 1990-04-10 | 2002 | 1003 |
+| 3010 |  1309.95 | 1990-06-10 | 2004 | 1002 |
+| 3011 |  9891.88 | 1990-06-10 | 2006 | 1001 |
++------+----------+------------+------+------+
+10 rows in set (0.00 sec)
+
+
