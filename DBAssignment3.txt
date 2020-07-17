@@ -1,0 +1,10 @@
+Name:- Shubham Phepale
+Seat_No:- 200240520093
+
+1)Does ANSI recognize the Date datatype?
+Ans:-Yes
+  The default Date format YYYY-MM-DD is.
+
+2)Which Subdivision of SQL is used to insert values in tables?
+Ans:-INSERT is Used to INSERT data into Table.
+E.g. INSERT into EMP(EID,ENAME,SAL)values (101,'shubham',5000);
