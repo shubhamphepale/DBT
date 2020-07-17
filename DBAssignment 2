@@ -1,0 +1,15 @@
+1) Which field of the Customers table is the primary key?
+	Ans:- Cnum cloumn having PRIMARY KEY in CUSTOMERS table. because it will use in ORDERS table as FOREGIN KRY.
+
+2) What is the 4th column of the Customers table?
+	Ans:- Ratting 
+
+3) What is another word for row? For column?
+	Ans:- In DBMS another name for row is RECORD and in RDBMS is TUPLE,ENTITY,OPPORTUNITY.
+
+4) Why isn’t it possible to see the first five rows of a table?
+	Ans:	-   In DBMS data stored sequentially in file, where as in RDBMS table is not a file every row is file.
+		-   Rows of table are scattered all over the DB server HD.
+		-   When you insert into table, wherever system finds the free space in the DB server HD it will stored row then.
+		-   The reson that RDBMS does this is to seepd up the insert statement.
+		-   When you select table, the order of rows in the output depends on the row address.
