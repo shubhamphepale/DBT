@@ -1,0 +1,34 @@
+Name - Shubham Khandu Phepale
+ID - 200240520093
+
+---------------------------------------------------------------------------------------------------
+1. Display the Supplier table in the descending order of CITY.
+ANS:-select * from S order by City desc;
+
+2. Display the Part Table in the ascending order of CITY and within the city in
+the ascending order of Part names.
+ANS:-select * from P order by city,Pname ;
+---------------------------------------------------------------------------------------------------
+
+3. Display all the Suppliers with a status between 10 and 20.
+ANS:- select * from S where Status between 10 and 20;
+
+---------------------------------------------------------------------------------------------------
+4. Display all the Parts and their Weight, which are not in the range of 10 and 15.
+ANS:-select *from S where Status not between 10 and 20;
+
+---------------------------------------------------------------------------------------------------
+5. Display all the Part names starting with the letter ‘S’.
+ANS:-select Pname from P where Pname like "S%";
+
+---------------------------------------------------------------------------------------------------
+
+6. Display all the Suppliers, belonging to cities starting with the letter ‘L’.
+ANNS:-select * from S where city like "L%";
+
+---------------------------------------------------------------------------------------------------
+
+7. Display all the Projects, with the third letter in JNAME as ‘n’. 
+ANS:-select * from J where Jname like "__n%";
+
+---------------------------------------------------------------------------------------------------
