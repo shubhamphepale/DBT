@@ -1,0 +1,36 @@
+Name: SHUBHAM K PHEPALE
+
+Seat_No: 200240520093 	
+
+
+1) Write a query that counts all orders for October 3. 
+
+ANS:- select count(*) from ORDERS where ODate ='1990-10-03';
+
+
+2) Write a query that counts the number of different non-NULL city values in the Customers table. 
+
+ANS:- select count(distinct(City)) from CUSTOMER where City is not null;
+
+ 
+3) Write a query that selects each customer’s smallest order. 
+
+ANS:-  select min(AMT) from ODERS order by Cnum; 
+
+ 
+4) Write a query that selects the first customer, in alphabetical order, whose name begins with G. 
+ 
+ANS:- select Cname from CUSTOMER where Cname like 'G%' order by Cname;
+
+
+5) Write a query that selects the highest rating in each city. 
+ 
+ANS:- select City ,  max(Rating) 'city rating' from CUSTOMER group by City;
+
+
+6) Write a query that counts the number of salespeople registering orders for each day.
+
+ (If a salesperson has more than one order on a given day, he or she should be counted only once)
+
+ANS:- 	select Snum 'salespeople' , ODate 'order date' , count(distinct(ODate)) 'order per user' from ORDERS group by ODate;	
+		
