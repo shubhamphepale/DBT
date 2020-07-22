@@ -1,0 +1,20 @@
+Name: SHUBHAM K PHEPALE
+
+Seat_No: 200240520093
+
+1) Assume each salesperson has a 12% commission. 
+Write a query on the orders table that will produce the order number, the salesperson number, 
+and the amount of the salesperson’s commission for that order. 			
+
+ANS:- select onum 'Order_no' , Snum 'salesperson number' , AMT 'Ammount of salesperson' , (AMT*0.12) '12% commission' from ORDERS;
+
+2) Write a query on the Customers table that will find the highest rating in each city. Put the output in this form: 
+For the city (city), the highest rating is : (rating).
+ANS:- select City ,  max(Rating) 'Highest rating' from CUSTOMER group by City;
+3) Write a query that lists customers in descending order of rating. Output the rating field first, followed by the customer’s name and number. 
+ANS:- select Rating , Cname 'Customer name' , Snum 'number' from CUSTOMER order by Rating desc;
+
+4) Write a query that totals the orders for each day and places the results in descending order
+ANS:-select count(ODate),ODate from ORDERS group by ODate;
+
+		
