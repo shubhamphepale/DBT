@@ -1,0 +1,19 @@
+Name :- Shubham K Phepale
+Seat_No:- 200240520093
+
+-------------------------------------------------------------------------------------------------------------------------
+
+1) Write a query that produces all pairs of salespeople who are living in the same city.
+Exclude combinations of salespeople with themselves as well as duplicate rows with
+the order reversed.
+
+ANS:- select a.Sname, b.Sname, a.City from SALESPEOPLE a, SALESPEOPLE b where a.City=b.City  AND a.Sname < b.Sname;
+
+-------------------------------------------------------------------------------------------------------------------------
+
+2) Write a query that produces the names and cities of all customers with the same rating
+as Hoffman.
+
+ANS:- select Cname, City from CUSTOMER where Rating = ( select Rating from CUSTOMER where Cname='Hoffman' );
+
+-------------------------------------------------------------------------------------------------------------------------
