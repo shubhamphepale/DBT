@@ -1,0 +1,24 @@
+Name :- Shubham K Phepale
+Seat_No:- 200240520093
+
+---------------------------------------------------------------------------------------------------------------------
+1) Write a query that lists each order number followed by the name of the customer
+who made the order.
+ANS: select Onum,  Cname from ORDERS o, CUSTOMER c where c.Cnum=o.Cnum ;
+---------------------------------------------------------------------------------------------------------------------
+
+2) Write a query that gives the names of both the salesperson and the customer for
+each order along with the order number.
+ANS: select Sname,Cname,Onum from ORDERS o, CUSTOMER c,SALESPEOPLE s where o.Snum=c.Snum  AND o.Snum=s.Snum;
+---------------------------------------------------------------------------------------------------------------------
+
+3) Write a query that produces all customers serviced by salespeople with a
+commission above 12%. Output the customer’s name, the salesperson’s name,
+and the salesperson’s rate of commission.
+ANS: select Cname,s.Cnum,Comm*100 from CUSTOMER c,SALESPEOPLE s where c.Snum=s.Snum  AND Comm>.12 ;
+---------------------------------------------------------------------------------------------------------------------
+
+4) Write a query that calculates the amount of the salesperson’s commission on each
+order by a customer with a rating above 100.
+ANS: select AMT,Comm from SALESPEOPLE JOIN CUSTOMER using(Snum) JOIN ORDERS using(Snum) where Rating>100;
+---------------------------------------------------------------------------------------------------------------------
