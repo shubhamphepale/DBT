@@ -1,0 +1,27 @@
+Name:- Shubham K Phepale
+Seat_No:- 200240520093
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+1) Write a query that selects all customers whose ratings are equal to or greater than
+ANY of 'Serres'.
+ANS:- select * from CUSTOMER where Rating >= ANY ( select Rating from CUSTOMER where snum IN ( select Snum from SALESPEOPLE where Sname='serres' ) );
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2) Write a query using ANY or ALL that will find all salespeople who have no
+customers located in their city.
+ANS:- select Snum from SALESPEOPLE where (Snum,City) NOT IN (select Snum,City from CUSTOMER);
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+3) Write a query that selects all orders for amounts greater than any for the
+customers in London.
+ANS:- select * from ORDERS where AMT > ANY  ( select AMT from ORDERS where Cnum IN ( select Cnum from CUSTOMER where City='London' ) );
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+4)Write the above query using MIN or MAX.
+ANS:- select * from ORDERS where AMT > (select min(AMT) from CUSTOMER NATURAL JOIN ORDERS where City='London');
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
