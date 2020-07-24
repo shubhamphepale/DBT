@@ -1,0 +1,33 @@
+Name:- Shubham K Phepale
+Seat_No:- 200240520093
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+1) Write a query that uses a subquery to obtain all orders for the customer named
+Cisneros. Assume you do not know his customer number (cnum).
+ANS:- select Onum ,Cnum from ORDERS where Cnum= (select cnum from CUSTOMER where Cname='cisneros');
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2) Write a query that produces the names and ratings of all customers who have
+above-average orders.
+ANS:- select Cname, Rating from CUSTOMER where Cnum IN (select Cnum from ORDERS where AMT > (select avg(AMT) from ORDERS));
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+3) Write a query that selects the total amount in orders for each salesperson for
+whom this total is greater than the amount of the largest order in the table.
+ANS:- select sum(AMT) from ORDERS group by Snum having sum(AMT)>  (select max(AMT) from ORDERS);
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
