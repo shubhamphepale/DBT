@@ -1,0 +1,31 @@
+﻿Name - Shubham K Phepale
+Seat_No - 200240520093
+
+1) Write a command that puts the following values, in their given order, into the salespeople table: city – San Jose, name – Blanco, comm – NULL, cnum – 1100.
+
+ANS:-  insert into SALESPEOPLE(City,Sname,Comm,Snum) values('San Jose','Blanco',NULL,1100);
+  
+
+2)Write a command that removes all orders from customer Clemens from the Orders table.
+
+ANS:- delete from ORDERS where Cnum = any(select Cnum from CUSTOMER where Cname = 'Clemens');
+  
+  
+  
+3)Write a command that increases the rating of all customers in Rome by 100.
+
+ANS:- update CUSROMER set Rating = Rating + 100;
+   
+   
+4)Salesperson Serres has left the company. Assign her customers to Motika.
+
+ANS:- update CUSTOMER set Snum = (select Snum from SALESPEOPLE where Sname='Serres')
+  
+ where Snum = (select Snum from SALESPEOPLE where Sname='Motika');
+
+
+
+
+
+
+ 
