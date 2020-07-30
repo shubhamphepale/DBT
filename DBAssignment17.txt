@@ -1,0 +1,27 @@
+Name:- Shubham K Phepale
+Seat_No:- 200240520093
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+1) Create the Orders table so that all onum values as well as all combinations of
+cnum and snum are different from one another, and so that NULL values are
+excluded from the date field.
+
+ANS:- create table ORDERS1( Onum int(4), Cnum int(4), Sname int(4), ODate date NOT NULL,primary key(Onum,Cnum,Sname));
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2) Create the Salespeople table so that the default commission is 10% with no
+NULLS permitted, snum is the primary key, and all names fall alphabetically
+between A and M, inclusive (assume all names will be uppercase).
+
+ANS:- create table SALESPEOPLE1( Snum int(4) primary key, Sname varchar(20),Comm int(3) DEFAULT 10 check(substr(upper(Sname),1,1) BETWEEN 'A' AND 'M') );
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+3) Create the Orders table, making sure that the onum is greater than the cnum, and
+the cnum is greater that the snum. Allow no NULLS in any of these three fields.
+
+ANS:-  create table ORDERS2(Onum int(4), AMT float(7,2), ODate date, Cnum int(4),check(Cnum>Cnum AND Cnum>Snum));
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------
