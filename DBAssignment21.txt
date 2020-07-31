@@ -1,0 +1,46 @@
+Name: Shubham K Phepale
+Seat_No: 200240520093
+
+----------------------------------------------------------------------------------------------------------
+
+1) Give Amit the right to change the ratings of the customers.
+
+ANS:-
+	grant update ON CUSTOMER to Amit ;
+
+----------------------------------------------------------------------------------------------------------
+
+2) Give Manoj the right to give other users the right to query the Orders table.
+ 
+
+ANS:-
+	grant select ON ORDERS TO Manoj with grant option;
+
+----------------------------------------------------------------------------------------------------------
+
+3) Take the INSERT privilege on Salespeople away from Ajita.
+
+ANS:-
+	revoke insert on SALESPEOPLE from Ajita;
+
+----------------------------------------------------------------------------------------------------------
+
+4) Grant Abhijeet the right to insert or update the Customers table while keeping her
+possible rating values in the range of 100 to 500.
+
+ANS:-
+	# grant update on range_100 to Ajita;
+
+	# insert into range_100 values(3000, 'rakesh', 'bikaner',700,7888);
+
+----------------------------------------------------------------------------------------------------------
+
+5) Allow Vikram to query the Customers table, but restrict his access to those
+customers whose rating is the lowest.
+
+ANS:-
+	# create or replace view restri
+	 	AS
+	select * from CUSTOMER where Rating NOT IN ( select min(Rating) from CUSTOMER);
+
+	# grant select ON restri to Vikaram;
